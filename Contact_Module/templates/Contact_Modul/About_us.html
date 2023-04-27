@@ -1,0 +1,52 @@
+{% extends 'shared/_Layout.html' %}
+{% load static %}
+{% block title %}
+    <title>درباره ما </title>
+{% endblock %}
+
+{%  block content %}
+
+	 <div id="contact-page" class="container">
+    	<div class="bg">
+
+    		<div class="row">
+				<div class="col-sm-4">
+	    			<div class="contact-info">
+	    				<h2 class="title text-center">لوگـو شرکت</h2>
+						<img src=" {{ site_setting.Site_Logo.url }}" class="img-responsive" />
+	    			</div>
+    			</div>
+	    		<div class="col-sm-8">
+	    			<div class="about">
+	    				<h2 class="title text-center">دربـاره ما</h2>
+						<p class="about-desc">
+                             {{ site_setting.About_us_Text }}
+						</p>
+						<p class="about-desc">
+						</p>
+	    			</div>
+	    		</div>
+	    	</div>
+
+			<div class="row">
+				<div class="col-sm-12 about-address">
+					<address>
+	    				<p>گـروه تکنوگـرافی 1614 | {{ site_setting.Address }} | تلفن تماس : 80 21 24 36 044 | فکس : 80 21 24 36 044 | ایمیـل : {{ site_setting.Email }}
+						</p>
+	    			</address>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="container">
+	    			<div class="col-sm-12" style="overflow: hidden; margin-bottom: 40px">    			   		<h2 class="title text-center">مـا اینجـا هستیـم ... </h2>    			    						<div id="gmap" class="contact-map">
+                        <iframe src="{{ site_setting.Location }}"></iframe>
+						</div>
+					</div>
+				</div>
+			</div>
+
+    	</div>
+    </div><!--/#contact-page-->
+
+{% endblock %}

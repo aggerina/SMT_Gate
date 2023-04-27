@@ -1,0 +1,82 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-12 22:23+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: .\apps.py:8
+msgid "Product Module"
+msgstr ""
+
+#: .\models.py:10 .\models.py:23 .\models.py:32
+msgid "Title"
+msgstr ""
+
+#: .\models.py:11
+msgid "url on title"
+msgstr ""
+
+#: .\models.py:12
+msgid "is_active"
+msgstr ""
+
+#: .\models.py:13
+msgid "is_delete"
+msgstr ""
+
+#: .\models.py:19
+msgid "Product Category"
+msgstr ""
+
+#: .\models.py:20 .\models.py:36
+msgid "Product Categorys"
+msgstr ""
+
+#: .\models.py:24
+msgid "Is_active"
+msgstr ""
+
+#: .\models.py:26
+msgid "ProductBrand"
+msgstr ""
+
+#: .\models.py:27
+msgid "ProductBrands"
+msgstr ""
+
+#: .\models.py:37
+msgid "Image"
+msgstr ""
+
+#: .\models.py:38
+msgid "Brand"
+msgstr ""
+
+#: .\models.py:39
+msgid "Price"
+msgstr ""
+
+#: .\models.py:40
+msgid "Short description"
+msgstr ""
+
+#: .\models.py:41
+msgid "Main description"
+msgstr ""
+
+#: .\models.py:43
+msgid "Slug"
+msgstr ""

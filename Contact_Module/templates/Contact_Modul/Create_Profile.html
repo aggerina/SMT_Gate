@@ -1,0 +1,17 @@
+{% extends 'shared/_Layout.html' %}
+{% load static %}
+{% block title %}
+    <title> ارتباط با ما </title>
+{% endblock %}
+{% block content %}
+<form id="main-contact-form" class="contact-form row" name="contact-form" action="{% url 'Profile_url' %}"
+                              method="post" enctype="multipart/form-data" >
+                            {% csrf_token %}
+{#                            <input type="file" name="Myfile">#}
+    {{ form }}
+				            <div class="form-group col-md-12">
+{#				                <input type="submit" name="submit" class="btn btn-primary pull-right" value="ارسـال">#}
+                                <button type="submit" name="submit" class="btn btn-primary pull-right" >ارسال</button>
+				            </div>
+				        </form>
+{% endblock %}

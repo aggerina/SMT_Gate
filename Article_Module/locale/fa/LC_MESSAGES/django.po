@@ -1,0 +1,103 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-04 22:29+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: .\Article_Module\apps.py:8
+msgid "Article Module"
+msgstr "ماژول مقالات "
+
+#: .\Article_Module\models.py:9 .\Article_Module\models.py:48
+#: .\Article_Module\models.py:49
+msgid "Parent"
+msgstr "والد سوال"
+
+#: .\Article_Module\models.py:10 .\Article_Module\models.py:23
+msgid "Title"
+msgstr "عنوان"
+
+#: .\Article_Module\models.py:11
+msgid "Url title"
+msgstr " عنوان در ادرس سایت "
+
+#: .\Article_Module\models.py:12
+msgid "Activated"
+msgstr "فعال شده "
+
+#: .\Article_Module\models.py:18
+msgid "ArticleCategory"
+msgstr "دسته بندی مقاله"
+
+#: .\Article_Module\models.py:19
+msgid "ArticleCategorys"
+msgstr "دسته بندی مقالات"
+
+#: .\Article_Module\models.py:24
+msgid "Slug"
+msgstr "سلاگ"
+
+#: .\Article_Module\models.py:25
+msgid "Image"
+msgstr "عکس"
+
+#: .\Article_Module\models.py:26
+msgid "Short_description"
+msgstr "توضیحات کوتاه"
+
+#: .\Article_Module\models.py:27 .\Article_Module\models.py:51
+msgid "Text"
+msgstr "متن"
+
+#: .\Article_Module\models.py:28
+msgid "Active"
+msgstr "فعال"
+
+#: .\Article_Module\models.py:29
+msgid "Choices category"
+msgstr " مقاله انتخاب شده"
+
+#: .\Article_Module\models.py:30
+msgid "Author"
+msgstr "نویسنده"
+
+#: .\Article_Module\models.py:31
+msgid "Create_Date"
+msgstr "زمان ایجاد"
+
+#: .\Article_Module\models.py:42 .\Article_Module\models.py:47
+msgid "Article"
+msgstr "مقاله"
+
+#: .\Article_Module\models.py:43
+msgid "Articles"
+msgstr "مقالات"
+
+#: .\Article_Module\models.py:50
+msgid "create_date"
+msgstr "زمان ایجاد"
+
+#: .\Article_Module\models.py:58
+msgid "Comment"
+msgstr "نظر"
+
+#: .\Article_Module\models.py:59
+msgid "Comments"
+msgstr "نظرات "
+
+#~ msgid "Pitle"
+#~ msgstr "عنوان"

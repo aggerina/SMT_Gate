@@ -1,0 +1,17 @@
+{% extends 'shared/_Layout.html' %}
+{% load render_partial %}
+{% block title %}
+  UserPanel
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4  pull-right">
+
+                {% render_partial  'User_Panel_Module.views.UserPanel_Menu_Component' %}
+
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

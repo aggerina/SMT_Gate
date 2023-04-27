@@ -1,0 +1,466 @@
+{% extends 'shared/_Layout.html' %}
+{% load static %}
+{% load poll_extras %}
+{% load render_partial %}
+{% load thumbnail %}
+{% block title %}
+    ArticleDetail
+{% endblock %}
+newsDetail
+{% block content %}
+    <main id="main">
+
+        <!-- ======= Blog Header ======= -->
+
+        <div class="header-bg page-area">
+            <div class="container position-relative">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="slider-content text-center">
+                            <div class="header-bottom">
+                                <div class="layer3">
+                                    <h1 class="title3">{{ article.title }} </h1>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- End Blog Header -->
+
+        <!-- ======= Blog Page ======= -->
+        <div class="blog-page area-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4">
+                        <div class="page-head-blog">
+                            <div class="single-blog-page">
+                                <!-- search option start -->
+                                <form action="#">
+                                    <div class="search-option">
+                                        <input type="text" placeholder="Search...">
+                                        <button class="button" type="submit">
+                                            <i class="bi bi-search"></i>
+                                        </button>
+                                    </div>
+                                </form>
+                                <!-- search option end -->
+                            </div>
+                            <div class="single-blog-page">
+                                <!-- recent start -->
+                                <div class="left-blog">
+                                    <h4>recent post</h4>
+                                    <div class="recent-post">
+                                        <!-- start single post -->
+                                        <div class="recent-single-post">
+                                            <div class="post-img">
+                                                <a href="#">
+                                                    <img src="{% static 'assets/img/blog/1.jpg' %}" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="pst-content">
+                                                <p><a href="#"> Redug Lerse dolor sit amet consect adipis elit.</a></p>
+                                            </div>
+                                        </div>
+                                        <!-- End single post -->
+                                        <!-- start single post -->
+                                        <div class="recent-single-post">
+                                            <div class="post-img">
+                                                <a href="#">
+                                                    <img src="{% static 'assets/img/blog/2.jpg' %}" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="pst-content">
+                                                <p><a href="#"> Redug Lerse dolor sit amet consect adipis elit.</a></p>
+                                            </div>
+                                        </div>
+                                        <!-- End single post -->
+                                        <!-- start single post -->
+                                        <div class="recent-single-post">
+                                            <div class="post-img">
+                                                <a href="#">
+                                                    <img src="{% static 'assets/img/blog/3.jpg' %}" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="pst-content">
+                                                <p><a href="#"> Redug Lerse dolor sit amet consect adipis elit.</a></p>
+                                            </div>
+                                        </div>
+                                        <!-- End single post -->
+                                        <!-- start single post -->
+                                        <div class="recent-single-post">
+                                            <div class="post-img">
+                                                <a href="#">
+                                                    <img src="{% static 'assets/img/blog/4.jpg' %}" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="pst-content">
+                                                <p><a href="#"> Redug Lerse dolor sit amet consect adipis elit.</a></p>
+                                            </div>
+                                        </div>
+                                        <!-- End single post -->
+                                    </div>
+                                </div>
+                                <!-- recent end -->
+                            </div>
+                            <div class="single-blog-page">
+                                <div class="left-blog">
+                                    <h4>categories</h4>
+                                    {% render_partial 'News_Module.views.News_Category_Component' %}
+                                </div>
+                            </div>
+                            <div class="single-blog-page">
+                                <div class="left-blog">
+                                    <h4>archive</h4>
+                                    <ul>
+                                        <li>
+                                            <a href="#">07 July 2016</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">29 June 2016</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">13 May 2016</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">20 March 2016</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">09 Fabruary 2016</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="single-blog-page">
+                                <div class="left-tags blog-tags">
+                                    <div class="popular-tag left-side-tags left-blog">
+                                        <h4>popular tags</h4>
+                                        <ul>
+                                            <li>
+                                                <a href="#">Portfolio</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Project</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Design</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">wordpress</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Joomla</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Html</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Masonry</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Website</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End left sidebar -->
+                    <!-- Start single blog -->
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <!-- single-blog start -->
+                                <article class="blog-post-wrapper">
+                                    <div class="post-thumbnail">
+
+                                        <img src="{{ news.image.url }}" alt=""/>
+                                    </div>
+                                    <div class="post-information">
+                                        <h2>Blog image post layout</h2>
+                                        <div class="entry-meta">
+
+                                            {% if news.Author.avatar %}
+                                                {% thumbnail news.Author.avatar "121x86" quality=95 crop='center' as im %}
+                                                    <img class="media-object" src="{{ im.url }}" alt=""/>
+                                                {% endthumbnail %}
+                                            {% endif %}
+
+                                            <span class="author-meta"><i class="bi bi-person"></i>
+                                                {% if news.Author is not None %}
+                                                    <a href="#">{{ article.Author }}</a>
+                                                {% endif %}
+                      </span>
+                                            <span><i class="bi bi-clock"></i>{{ news.ge_jalali_create_date }}</span>
+                                            <span class="tag-meta">
+                        <i class="bi bi-folder"></i>
+                        <a href="#">painting</a>,
+                        <a href="#">work</a>
+                      </span>
+                                            <span>
+                        <i class="bi bi-tags"></i>
+                        <a href="#">tools</a>,
+                        <a href="#"> Humer</a>,
+                        <a href="#">House</a>
+                      </span>
+                                            <span><i class="bi bi-chat"></i> <a
+                                                    href="#">{{ Comments_Count }} comments</a></span>
+                                        </div>
+                                        <div class="entry-content">
+                                            {{ news.text }}
+                                        </div>
+                                    </div>
+                                </article>
+                                <div class="clear"></div>
+                                <div class="single-post-comments">
+                                    <div class="">
+                                        <div class="comments-heading">
+                                            <h3>{{ Comments_Count }} comments</h3>
+                                        </div>
+
+                                        <div class="response-area comments-list" id="comment_area">
+                                            <ul>
+
+                                                {% for comment in Comments %}
+                                                    <div class="container mt-3  d-flex justify-content-start">
+
+                                                        <div class="row d-flex col-12  justify-content-start">
+                                                            <div class="col-md-12">
+
+                                                                <div class="card p-3 mb-2" style="background-color: #e9ecef">
+
+                                                                    <div class="d-flex flex-row">
+                                                                        {% if comment.user.avatar %}
+                                                                            {% thumbnail comment.user.avatar "150x100" quality=95 crop='center' as im %}
+                                                                                <img class="media-object rounded-circle"
+                                                                                     src="{{ im.url }}">
+                                                                            {% endthumbnail %}
+
+                                                                        {% else %}
+                                                                            <img class="media-object"
+                                                                                 src="{% static 'images/blog/Customer.jpg' %}"
+                                                                                 alt="">
+                                                                        {% endif %}
+
+                                                                        <div class="d-flex flex-column ms-2">
+                                                                            <h6 class="mb-1 text-primary">{{ comment.user }}</h6>
+                                                                            <p class="comment-text">{{ comment.text }}</p>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="d-flex justify-content-between">
+                                                                        <div class="d-flex flex-row gap-3 align-items-center">
+                                                                            <div class="d-flex align-items-center">
+                                                                                <i class="fa fa-heart-o"></i>
+                                                                                <span class="ms-1 fs-10">Like</span>
+                                                                            </div>
+
+                                                                            <div class="d-flex align-items-center">
+                                                                                <i class="fa fa-comment-o"></i>
+                                                                                <span class="ms-1 fs-10"><a type="button" onclick="FillParentID({{ comment.id }})">reply</a></span>
+
+{#                                                                                 onclick="FillParentID({{ comnent.id }})"><i#}
+                                                {#                                                                        class="fa fa-reply"></i>پاسـخ</a></div>#}
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="d-flex flex-row">
+                                                                            <span class="text-muted fw-normal fs-10">{{ comment.create_date | time }} / {{ comment.create_date | show_jalai_date }}</span>
+                                                                        </div>
+
+
+                                                                    </div>
+
+
+                                                                </div>
+
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+                                                    {% for sub_coments in comment.newscomment_set.all %}
+                                                        <div class="container mt-3 px-4  d-flex d-block justify-content-start">
+
+                                                            <div class="row   col-12 justify-content-start">
+                                                                <div class="col-md-12">
+
+                                                                    <div style="background-color: #d4edda" class="card  p-3 mb-2">
+
+                                                                        <div class="d-flex flex-row">
+                                                                            {% if sub_coments.user.avatar %}
+                                                                                {% thumbnail sub_coments.user.avatar "150x100" quality=95 crop='center' as im %}
+                                                                                    <img class="media-object rounded-circle"
+                                                                                         src="{{ im.url }}">
+                                                                                {% endthumbnail %}
+
+                                                                            {% else %}
+                                                                                <img class="media-object"
+                                                                                     src="{% static 'images/blog/Customer.jpg' %}"
+                                                                                     alt="">
+                                                                            {% endif %}
+
+                                                                            <div class="d-flex flex-column ms-2">
+                                                                                <h6 class="mb-1 text-primary">{{ sub_coments.user }}</h6>
+                                                                                <p class="comment-text">{{ sub_coments.text }}</p>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="d-flex justify-content-between">
+                                                                            <div class="d-flex flex-row gap-3 align-items-center">
+                                                                                <div class="d-flex align-items-center">
+                                                                                    <i class="fa fa-heart-o"></i>
+                                                                                    <span class="ms-1 fs-10">Like</span>
+                                                                                </div>
+
+                                                                                <div class="d-flex align-items-center">
+                                                                                    <i class="fa fa-comment-o"></i>
+                                                                                    <span class="ms-1 fs-10">Replay to /{{ comment.user }}</span>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="d-flex flex-row">
+                                                                                <span class="text-muted fw-normal fs-10">{{ comment.create_date | time }} / {{ comment.create_date | show_jalai_date }}</span>
+
+                                                                            </div>
+
+
+                                                                        </div>
+
+
+                                                                    </div>
+
+
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+                                                    {% endfor %}
+                                                {% endfor %}
+
+
+                                                {#                                                {% for comnent in Comments %}#}
+                                                {##}
+                                                {#                                                    <li class="media" id="SelfComment{{ comnent.id }}">#}
+                                                {#                                                        <a class="pull-right" href="#">#}
+                                                {#                                                            {% if comnent.user.avatar %}#}
+                                                {#                                                                {% thumbnail comnent.user.avatar "121x86" quality=95 crop='center' as im %}#}
+                                                {#                                                                    <img class="media-object" src="{{ im.url }}">#}
+                                                {#                                                                {% endthumbnail %}#}
+                                                {##}
+                                                {#                                                            {% else %}#}
+                                                {#                                                                <img class="media-object"#}
+                                                {#                                                                     src="{% static 'images/blog/Customer.jpg' %}"#}
+                                                {#                                                                     alt="">#}
+                                                {#                                                            {% endif %}#}
+                                                {#                                                        </a>#}
+                                                {#                                                        <div class="media-body row">#}
+                                                {#                                                            <div class="col">#}
+                                                {#                                                                <ul class="sinlge-post-meta">#}
+                                                {#                                                                    <li><i class="fa fa-user"></i>{{ comnent.user }}#}
+                                                {#                                                                    </li>#}
+                                                {#                                                                    <li>#}
+                                                {#                                                                        <i class="fa fa-clock-o"></i>{{ sub_coments.create_date | time }}#}
+                                                {#                                                                    </li>#}
+                                                {#                                                                    <li>#}
+                                                {#                                                                        <i class="fa fa-calendar"></i>{{ sub_coments.create_date | show_jalai_date }}#}
+                                                {#                                                                    </li>#}
+                                                {#                                                                </ul>#}
+                                                {#                                                                <p>{{ comnent.text }}</p>#}
+                                                {#                                                                <a class="btn btn-primary"#}
+                                                {#                                                                   onclick="FillParentID({{ comnent.id }})"><i#}
+                                                {#                                                                        class="fa fa-reply"></i>پاسـخ</a></div>#}
+                                                {#                                                        </div>#}
+                                                {#                                                    </li>#}
+                                                {#                                                    {% for sub_coments in comnent.articelcomment_set.all %}#}
+                                                {#                                                        <li class="media second-media" id="SelfComment{{ comnent.id }}">#}
+                                                {#                                                            <a class="pull-right" href="#">#}
+                                                {#                                                                {% if sub_coments.user.avatar %}#}
+                                                {#                                                                    {% thumbnail sub_coments.user.avatar "121x86" quality=95 crop='center' as im %}#}
+                                                {#                                                                        <img class="media-object" src="{{ im.url }}">#}
+                                                {#                                                                    {% endthumbnail %}#}
+                                                {##}
+                                                {#                                                                {% else %}#}
+                                                {#                                                                    <img class="media-object"#}
+                                                {#                                                                         src="{% static 'images/blog/Customer.jpg' %}"#}
+                                                {#                                                                         alt="">#}
+                                                {#                                                                {% endif %}#}
+                                                {#                                                            </a>#}
+                                                {#                                                            <div class="media-body">#}
+                                                {#                                                                <ul class="sinlge-post-meta">#}
+                                                {#                                                                    <li><i class="fa fa-user"></i>{{ sub_coments.user }}#}
+                                                {#                                                                    </li>#}
+                                                {#                                                                    <li>#}
+                                                {#                                                                        <i class="fa fa-clock-o"></i>{{ sub_coments.create_date | time }}#}
+                                                {#                                                                    </li>#}
+                                                {#                                                                    <li>#}
+                                                {#                                                                        <i class="fa fa-calendar"></i>{{ sub_coments.create_date | show_jalai_date }}#}
+                                                {#                                                                    </li>#}
+                                                {#                                                                </ul>#}
+                                                {#                                                                <p>{{ sub_coments.text }}</p>#}
+                                                {##}
+                                                {#                                                            </div>#}
+                                                {#                                                        </li>#}
+                                                {#                                                    {% endfor %}#}
+                                                {##}
+                                                {#                                                {% endfor %}#}
+
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="comment-respond">
+                                        <h3 class="comment-reply-title">Leave a Reply </h3>
+                                        <span class="email-notes">Your email address will not be published. Required fields are marked *</span>
+                                        <div class="replay-box" id="comment_for">
+                                            {% if request.user.is_authenticated %}
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <h2>نظـر خود را بنویسیـد</h2>
+                                                        <div class="text-area">
+                                                            <input type="hidden" id="parent_id" value="">
+                                                            <div class="blank-arrow">
+                                                                <label>متن پیام</label>
+                                                            </div>
+                                                            <span>*</span>
+                                                            <textarea name="message" rows="11"
+                                                                      id="Comment_text"></textarea>
+                                                            <a class="btn btn-primary"
+                                                               onclick="SendNewsComment({{news.id }})">ارسـال نظـر</a>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            {% else %}
+                                                <div class="alert alert-warning">
+                                                    برای ثبت نظر باید لاگین کرده باشید <a href="{% url 'Login_url' %}">لاگین</a>
+                                                </div>
+                                            {% endif %}
+                                        </div><!--/Repaly Box-->
+                                        {#                    <form action="#">#}
+                                        {#                      <div class="row">#}
+                                        {#                        <div class="col-lg-12 col-md-12 col-sm-12 comment-form-comment">#}
+                                        {##}
+                                        {#                          <textarea name="message" rows="11" id="Comment_text"></textarea>#}
+                                        {#                          <input class="btn btn-primary" type="submit" value="replay" onclick="SendArticleComment({{ article.id }})"/>#}
+                                        {#                        </div>#}
+                                        {#                      </div>#}
+                                        {#                    </form>#}
+                                    </div>
+
+                                </div>
+                                <!-- single-blog end -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- End Blog Page -->
+
+    </main><!-- End #main -->
+
+{% endblock %}

@@ -1,0 +1,77 @@
+{% load i18n %}
+<header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex justify-content-between">
+
+        <div class="logo">
+            <h1><a style="font-family: VAZIR" href="{% url 'Home_Page_Url' %}"><span>{{ Site_Setting.Site_Name }}</span></a></h1>
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+{#                                 {% thumbnail Site_Setting.Site_Logo "121x86" quality=95 crop='center' as im %}#}
+{#                                                    <img class="media-object" src="{{ im.url }}" alt=""/>#}
+{#                                                {% endthumbnail %}#}
+        </div>
+
+        <nav  id="navbar" class="navbar">
+            <ul>
+                <li><a style="font-family: VAZIR; font-size: xx-large" class="MyFont nav-link scrollto active" href="{% url 'Home_Page_Url' %}#hero">{{ NavBar.Home }}</a></li>
+                <li><a style="font-family: VAZIR; font-size: xx-large" class="nav-link scrollto" href="{% url 'Home_Page_Url' %}#about">{{ NavBar.About }}</a></li>
+                <li><a style="font-family: VAZIR; font-size: xx-large" class="nav-link scrollto" href="{% url 'Home_Page_Url' %}#services">{{ NavBar.Services }}</a></li>
+                <li class="dropdown" ><a style="font-family: VAZIR; font-size: xx-large" class="nav-link scrollto" href="#product">{{ NavBar.SalesProducts }}</a>
+                <ul>
+                    {% for category in Productcategory %}
+                          <li><a style="font-family: VAZIR; font-size: x-large" href="{% url 'ProductCategory_list_Url' cat=category.url_title %}">{{ category.title }}</a></li>
+                    {% endfor %}
+
+                </ul>
+                </li>
+                <li><a style="font-family: VAZIR; font-size: xx-large" class="nav-link scrollto" href="{% url 'Home_Page_Url' %}#portfolio">{{ NavBar.Protfilo }}</a></li>
+                <li><a style="font-family: VAZIR; font-size: xx-large" class="nav-link scrollto" href="{% url 'Home_Page_Url' %}#team">{{ NavBar.Team }}</a></li>
+                <li><a style="font-family: VAZIR; font-size: xx-large" href="{% url 'Articles_Url' %}">{{ NavBar.Blog }}</a></li>
+                <li><a style="font-family: VAZIR; font-size: xx-large" class="nav-link scrollto" href="{% url 'Contact_Page_url' %}">{{ NavBar.Contact }}</a></li>
+                <li class="dropdown"><a style="font-family: VAZIR; font-size: xx-large" href="#"><span>{{ NavBar.Account }}</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+
+                        {#              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>#}
+                        {#                <ul>#}
+                        {#                  <li><a href="#">Deep Drop Down 1</a></li>#}
+                        {#                  <li><a href="#">Deep Drop Down 2</a></li>#}
+                        {#                  <li><a href="#">Deep Drop Down 3</a></li>#}
+                        {#                  <li><a href="#">Deep Drop Down 4</a></li>#}
+                        {#                  <li><a href="#">Deep Drop Down 5</a></li>#}
+                        {#                </ul>#}
+                        </li>
+                        <li><a style="font-family: VAZIR; font-size: x-large" href="{% url 'Register_url' %}">{{ NavBar.Register }}</a></li>
+                        <li><a style="font-family: VAZIR; font-size: x-large" href="{% url 'Forgot_paasword_url' %}">{{ NavBar.ForgotPassword }}</a></li>
+                        <li><a style="font-family: VAZIR; font-size: x-large" href="{% url 'LogOut_url' %}">{{ NavBar.Logout }}</a></li>
+
+                    </ul>
+                </li>
+
+
+                <li class="p-1"><a class="btn btn-secondary nav-link scrollto" href="{% url 'Login_url' %}">{{ NavBar.Login }}</a>
+                </li>
+
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+
+
+            <form  action="{% url 'set_language' %}" method="post">
+                {% csrf_token %}
+    <input name="next" type="hidden" value="{{ redirect_to }}">
+    <select name="language" class="selector-chosen ">
+        {% get_current_language as LANGUAGE_CODE %}
+        {% get_available_languages as LANGUAGES %}
+        {% get_language_info_list for LANGUAGES as languages %}
+        {% for language in languages %}
+            <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                {{ language.name_local }} ({{ language.code }})
+            </option>
+        {% endfor %}
+    </select>
+
+    <input type="submit" value="change" class="btn btn-sm btn-light text-dark" >
+</form>
+        </nav><!-- .navbar -->
+
+    </div>
+</header><!-- End Header -->

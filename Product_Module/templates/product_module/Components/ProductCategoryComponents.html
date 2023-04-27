@@ -1,0 +1,29 @@
+<h2>دسته بندی محصولات</h2>
+{#<div class="panel-group category-products" id="accordian"><!--category-productsr-->#}
+{#    {% for Category in product_category %}#}
+{#        <div class="panel panel-default">#}
+{#            <div class="panel-heading">#}
+{#                <h4 class="panel-title"> <a href="{% url 'ProductCategory_list_Url' cat=Category.url_title%}">{{ Category.title }}</a></h4>#}
+{#            </div>#}
+{#        </div>#}
+{#    {% endfor %}#}
+{#</div><!--/category-productsr-->#}
+
+
+
+<div class="list-group">
+{#  <button type="button" class="list-group-item list-group-item-action active">#}
+{#    Cras justo odio#}
+{#  </button>#}
+
+        {% for Category in product_category %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+{#                <h4 class="panel-title"> <a href="{% url 'ProductCategory_list_Url' cat=Category.url_title%}">{{ Category.title }}</a></h4>#}
+                 <button  type="button" class="list-group-item list-group-item-action"><a href="{% url 'ProductCategory_list_Url' cat=Category.url_title%}">{{ Category.title }}</a></button>
+            </div>
+        </div>
+    {% endfor %}
+
+
+</div>

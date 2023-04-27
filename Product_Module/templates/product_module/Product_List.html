@@ -1,0 +1,199 @@
+{% extends 'shared/_Layout.html' %}
+{% load render_partial %}
+{% load static %}
+{% block title %}
+    Product
+{% endblock %}
+
+
+{% block content %}
+    {#    	<section>#}
+    {#		<div class="container">#}
+    {#			<div class="row">#}
+    {#				#}
+    {#				<div class="col-sm-9 padding-right">#}
+    {#					{% if Products %}#}
+    {#                    <div class="features_items"><!--features_items-->#}
+    {#						<h2 class="title text-center">محصولات عمده</h2>#}
+    {#                        {% for product in Products %}#}
+    {##}
+    {#                                <div class="col-sm-4">#}
+    {#							<div class="product-image-wrapper">#}
+    {#								<div class="single-products">#}
+    {#									<div class="productinfo text-center">#}
+    {#                                        {% if product.image %}#}
+    {#                                        <img src='{{ product.image.url }}' alt="" />#}
+    {#                                        {% else %}#}
+    {#										<img src='{% static "images/shop/product.jpg" %}' alt="" />#}
+    {#                                        {% endif %}#}
+    {#										<h2> {{ product.price }}ريال</h2>#}
+    {#										<p>{{ product.short_description }}</p>#}
+    {#										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+    {#									</div>#}
+    {#									<div class="product-overlay">#}
+    {#										<div class="overlay-content">#}
+    {#											<h2>{{ product.price }} ريال</h2>#}
+    {#											<p>{{ product.short_description }}</p>#}
+    {#											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+    {#										</div>#}
+    {#									</div>#}
+    {#								</div>#}
+    {#								<div class="choose">#}
+    {#									<ul class="nav nav-pills nav-justified">#}
+    {#										<li><a href="{% url 'product-detail' slug=product.slug %}"><i class="fa fa-plus-square"></i>مشاهده جرئیات</a></li>#}
+    {#										<li><a href=""><i class="fa fa-plus-square"></i>مقایسه</a></li>#}
+    {#									</ul>#}
+    {#								</div>#}
+    {#							</div>#}
+    {#						</div>#}
+    {#                        {% endfor %}#}
+    {#                        <div class="clearfix" > </div>#}
+    {#						<ul class="pagination">#}
+    {#                        {% if page_obj.has_previous %}#}
+    {#                            <li><a href="?page={{ page_obj.previous_page_number }}">قبلی</a></li>#}
+    {#                        {% endif %}#}
+    {#                            {%  for pageNumber in paginator.page_range %}#}
+    {#                                	<li {% if page_obj.number == pageNumber %}class="active"{% endif %} >#}
+    {#                                        <a href="?page={{ pageNumber}}">{{  pageNumber}}</a></li>#}
+    {#                            {% endfor  %}#}
+    {#                                {% if page_obj.has_next %}#}
+    {#                            <li><a href="?page={{ page_obj.next_page_number }}">بعدی</a></li>#}
+    {#                        {% endif %}#}
+    {#						</ul>#}
+    {#					</div><!--features_items-->#}
+    {#                        {% else %}#}
+    {#                        <div class="alert alert-warning">#}
+    {#                        <p>هیچ محصولی یافت نشد </p>#}
+    {#                        </div>#}
+    {#					{% endif %}#}
+    {#				</div>#}
+    {#				#}
+    {#				<div class="col-sm-3">#}
+    {#					<div class="left-sidebar">#}
+    {#		            {% render_partial 'Product_Module.views.ProductCategoryComponents' %}#}
+    {#						{% render_partial 'Product_Module.views.Productbrand' %}#}
+    {#						<div class="price-range"><!--price-range-->#}
+    {#							<h2>فیلتـر قیمـت</h2>#}
+    {#							<div class="well">#}
+    {#								 <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="1000000" data-slider-step="5" data-slider-value="[250,450]" id="sl2" ><br />#}
+    {#								 <b>1.000.000 ريال</b> <b class="pull-left">0 ريال</b>#}
+    {#							</div>#}
+    {#						</div><!--/price-range-->#}
+    {##}
+    {#					</div>#}
+    {#				</div>#}
+    {#				#}
+    {#			</div>#}
+    {#		</div>#}
+    {#	</section>#}
+
+    <div id="product" class="portfolio-area area-padding fix">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="section-headline text-center">
+                        <h2>{{ SiteSetting.Our_Portfolio }}</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row wesome-project-1 fix">
+                <!-- Start Portfolio -page -->
+                {#          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">#}
+                {#            <ul id="portfolio-flters">#}
+                {#              <li data-filter="*" class="filter-active">All</li>#}
+                {#              <li data-filter=".filter-app">App</li>#}
+                {#              <li data-filter=".filter-card">Card</li>#}
+                {#              <li data-filter=".filter-web">Web</li>#}
+                {#            </ul>#}
+                {#          </div>#}
+            </div>
+
+            <div class="row awesome-project-content portfolio-container">
+
+                <!-- portfolio-item start -->
+                {% if Products %}
+                    {#            {% for product in Products %}#}
+                    {#          <div class="col-md-4 col-sm-4 col-xs-12 portfolio-item filter-app portfolio-item">#}
+                    {#            <div class="single-awesome-project">#}
+                    {#              <div class="awesome-img">#}
+                    {#                <a href="#"><img src="{{ product.image.url }}" alt="" /></a>#}
+                    {#                <div class="add-actions text-center">#}
+                    {#                  <div class="project-dec">#}
+                    {#                    <a class="portfolio-lightbox" data-gallery="myGallery" href="{{ product.image.url }}">#}
+                    {#                      <h4>{{ product.title }}</h4>#}
+                    {#                      <span>{{ product.description }}</span>#}
+                    {#                    </a>#}
+                    {#                  </div>#}
+                    {#                </div>#}
+                    {#              </div>#}
+                    {#            </div>#}
+                    {#          </div>#}
+                    {#          <!-- portfolio-item end -->#}
+                    {#            {% endfor %}#}
+
+
+                    {% for product in Products %}
+                        <div class="col-md-4 col-sm-2 col-xs-12 portfolio-item filter-{{ product.category.prefetch_related.first.url_title }} portfolio-item">
+                            <div class="single-awesome-project">
+
+                                <div class="card-group">
+                                    <div class="card">
+                                        <div class="awesome-img">
+                                            <a href="#"><img src="{{ product.image.url }}" alt=""/></a>
+                                            <div class="add-actions text-center">
+                                                <div class="project-dec">
+                                                    <a class="portfolio-lightbox" data-gallery="myGallery"
+                                                       href="{{ product.image.url }}">
+                                                        <h4>{{ product.short_description }}</h4>
+                                                        {#                      <span>Web Development</span>#}
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {#                            <img class="card-img-top" src="..." alt="Card image cap">#}
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">{{ product.title }}</h5>
+                                <h5 class="card-title">{{ product.price }} </h5>
+                                <p class="card-text">{{ product.short_description }}</p>
+                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                <li><a href="{% url 'product-detail' slug=product.slug %}"><i
+                                        class="fa fa-plus-square"></i>مشاهده جرئیات</a></li>
+
+                            </div>
+
+                        </div>
+
+
+
+
+                    {% endfor %}
+
+
+                {% endif %}
+
+
+            </div>
+            <ul class="pagination">
+                {% if page_obj.has_previous %}
+                    <li><a href="?page={{ page_obj.previous_page_number }}">قبلی</a></li>
+                {% endif %}
+                {% for pageNumber in paginator.page_range %}
+                    <li {% if page_obj.number == pageNumber %}class="active"{% endif %}>
+                        <a href="?page={{ pageNumber }}">{{ pageNumber }}</a></li>
+                {% endfor %}
+                {% if page_obj.has_next %}
+                    <li><a href="?page={{ page_obj.next_page_number }}">بعدی</a></li>
+                {% endif %}
+            </ul>
+        </div>
+
+    </div><!-- End Portfolio Section -->
+
+
+{% endblock %}

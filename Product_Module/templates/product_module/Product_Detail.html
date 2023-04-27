@@ -1,0 +1,160 @@
+{% extends "shared/_Layout.html" %}
+{% load static %}
+{% load render_partial %}
+{% block title %}
+
+    <title>جزئیات محصول </title>
+{% endblock %}
+{% block content %}
+    <section>
+     <div  class="portfolio-area area-padding pt-5 mt-5 fix ">
+        <div class="container ">
+            <div class="row">
+                {% if Is_favorit %}
+                    <div class="col-md-12">
+                        <p>
+                            این محصول مورد علاقه شما است
+                        </p>
+                    </div>
+                {% endif %}
+                          <div class="col-md-9 col-sm-6 col-xs-12 portfolio-item filter-{{ product.category.prefetch_related.first.url_title }} portfolio-item">
+                            <div class="single-awesome-project">
+
+                                <div class="card-group">
+                        <div class="card">
+                                <div class="awesome-img">
+                                    <a href="#"><img src="{{ product.image.url }}" alt=""/></a>
+                                    <div class="add-actions text-center">
+                                        <div class="project-dec">
+                                            <a class="portfolio-lightbox" data-gallery="myGallery"
+                                               href="{{ product.image.url }}">
+                                                <h4>{{ product.short_description }}</h4>
+                                                {#                      <span>Web Development</span>#}
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+{#                            <img class="card-img-top" src="..." alt="Card image cap">#}
+
+                        </div>
+
+                    </div>
+
+                            </div>
+                                             <div class="card-body">
+                                <h5 class="card-title">{{ product.title }}</h5>
+                                <h5 class="card-title">{{ product.price }} </h5>
+                                <p class="card-text">{{ product.short_description }}</p>
+                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+
+                            </div>
+
+                        </div>
+
+{##}
+{#                <div class="col-sm-9 padding-right">#}
+{#                    <div class="product-details"><!--product-details-->#}
+{#                        <div class="col-sm-5">#}
+{#                            <div class="view-product">#}
+{#                                <img src="{{ product.image.url }}" alt=""/>#}
+{#                                <h3>بزرگنمایـی</h3>#}
+{#                            </div>#}
+{#                            <div id="similar-product" class="carousel slide" data-ride="carousel">#}
+{##}
+{#                                <!-- Wrapper for slides -->#}
+{#                                <div class="carousel-inner">#}
+{#                                    <div class="item active">#}
+{#                                        <a href=""><img src="images/product-details/similar1.jpg" alt=""></a>#}
+{#                                        <a href=""><img src="images/product-details/similar2.jpg" alt=""></a>#}
+{#                                        <a href=""><img src="images/product-details/similar3.jpg" alt=""></a>#}
+{#                                    </div>#}
+{#                                    <div class="item">#}
+{#                                        <a href=""><img src="images/product-details/similar1.jpg" alt=""></a>#}
+{#                                        <a href=""><img src="images/product-details/similar2.jpg" alt=""></a>#}
+{#                                        <a href=""><img src="images/product-details/similar3.jpg" alt=""></a>#}
+{#                                    </div>#}
+{#                                    <div class="item">#}
+{#                                        <a href=""><img src="images/product-details/similar1.jpg" alt=""></a>#}
+{#                                        <a href=""><img src="images/product-details/similar2.jpg" alt=""></a>#}
+{#                                        <a href=""><img src="images/product-details/similar3.jpg" alt=""></a>#}
+{#                                    </div>#}
+{##}
+{#                                </div>#}
+{##}
+{#                                <!-- Controls -->#}
+{#                                <a class="right item-control" href="#similar-product" data-slide="next">#}
+{#                                    <i class="fa fa-angle-right"></i>#}
+{#                                </a>#}
+{#                                <a class="left item-control" href="#similar-product" data-slide="prev">#}
+{#                                    <i class="fa fa-angle-left"></i>#}
+{#                                </a>#}
+{#                            </div>#}
+{##}
+{#                        </div>#}
+{#                        <div class="col-sm-7">#}
+{#                            <div class="product-information"><!--/product-information-->#}
+{#                                <img src="images/product-details/new.png" class="newarrival" alt=""/>#}
+{#                                <div>#}
+{#                                    <h2>کـالای شمـاره 010</h2>#}
+{#                                    <p>شناسـه : 0110110</p>#}
+{#                                </div>#}
+{#                                <div>#}
+{#									<span>#}
+{#										<span>قیمت{{ product.price }} تومان</span>#}
+{#									</span>#}
+{#                                    <span>#}
+{#						            <form action="{% url 'product_Favorite' %}" method="post">#}
+{#                                         {% csrf_token %}#}
+{#                                        <label>تعداد  :</label>#}
+{#										<input type="hidden" name="product_id" value="{{ product.id }}"#}
+{#                                               class="search_box"/>#}
+{#										<button type="submit" class="btn btn-fefault cart">#}
+{#											<i class="fa fa-shopping-cart"></i>#}
+{#											ثبت به عنوان کالای محبوب#}
+{#										</button>#}
+{#                                    </form>#}
+{#									</span>#}
+{#                                </div>#}
+{#                                <div>#}
+{#                                    <p><b>موجـودی :</b> در انبـار موجود می باشد</p>#}
+{#                                    <p><b>شرایـط :</b> جدیـد</p>#}
+{##}
+{#                                    {% if product.brand %}#}
+{#                                        <p><b>برنـد :</b> {{ product.brand }} </p>#}
+{#                                    {% endif %}#}
+{#                                </div>#}
+{#                #}
+{#                            </div><!--/product-information-->#}
+{#                        </div>#}
+{#                    </div><!--/product-details-->#}
+{##}
+{#                </div>#}
+
+                <div class="col-sm-3">
+                    <div class="left-sidebar">
+
+                        {% render_partial 'Product_Module.views.ProductCategoryComponents' %}
+                        {% render_partial 'Product_Module.views.Productbrand' %}
+{#                        <div class="brands_products"><!--brands_products-->#}
+{#                            <h2>برنـد ها</h2>#}
+{#                            <div class="brands-name">#}
+{#                                <ul class="nav nav-pills nav-stacked">#}
+{#                                    <li><a href=""> <span class="pull-left">(50)</span>برنـد 1</a></li>#}
+{#                                    <li><a href=""> <span class="pull-left">(56)</span>برنـد 2</a></li>#}
+{#                                    <li><a href=""> <span class="pull-left">(27)</span>برنـد 3</a></li>#}
+{#                                    <li><a href=""> <span class="pull-left">(32)</span>برنـد 4</a></li>#}
+{#                                    <li><a href=""> <span class="pull-left">(5)</span>برنـد 5</a></li>#}
+{#                                </ul>#}
+{#                            </div>#}
+{#                        </div><!--/brands_products-->#}
+                        </div><!--/price-range-->
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </section>
+{% endblock %}

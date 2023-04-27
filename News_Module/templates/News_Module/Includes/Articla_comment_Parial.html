@@ -1,0 +1,195 @@
+{% load static %}
+{% load poll_extras %}
+{% load thumbnail %}
+     {% for comment in Comments %}
+                                                    <div class="container mt-3  d-flex justify-content-start">
+
+                                                        <div class="row d-flex col-12  justify-content-start">
+                                                            <div class="col-md-12">
+
+                                                                <div class="card p-3 mb-2" style="background-color: #e9ecef">
+
+                                                                    <div class="d-flex flex-row">
+                                                                        {% if comment.user.avatar %}
+                                                                            {% thumbnail comment.user.avatar "150x100" quality=95 crop='center' as im %}
+                                                                                <img class="media-object rounded-circle"
+                                                                                     src="{{ im.url }}">
+                                                                            {% endthumbnail %}
+
+                                                                        {% else %}
+                                                                            <img class="media-object"
+                                                                                 src="{% static 'images/blog/Customer.jpg' %}"
+                                                                                 alt="">
+                                                                        {% endif %}
+
+                                                                        <div class="d-flex flex-column ms-2">
+                                                                            <h6 class="mb-1 text-primary">{{ comment.user }}</h6>
+                                                                            <p class="comment-text">{{ comment.text }}</p>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="d-flex justify-content-between">
+                                                                        <div class="d-flex flex-row gap-3 align-items-center">
+                                                                            <div class="d-flex align-items-center">
+                                                                                <i class="fa fa-heart-o"></i>
+                                                                                <span class="ms-1 fs-10">Like</span>
+                                                                            </div>
+
+                                                                            <div class="d-flex align-items-center">
+                                                                                <i class="fa fa-comment-o"></i>
+                                                                                <span class="ms-1 fs-10"><a type="button" onclick="FillParentID({{ comment.id }})">reply</a></span>
+
+{#                                                                                 onclick="FillParentID({{ comnent.id }})"><i#}
+                                                {#                                                                        class="fa fa-reply"></i>پاسـخ</a></div>#}
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="d-flex flex-row">
+                                                                            <span class="text-muted fw-normal fs-10">{{ comment.create_date | time }} / {{ comment.create_date | show_jalai_date }}</span>
+                                                                        </div>
+
+
+                                                                    </div>
+
+
+                                                                </div>
+
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+                                                    {% for sub_coments in comment.articelcomment_set.all %}
+                                                        <div class="container mt-3 px-4  d-flex d-block justify-content-start">
+
+                                                            <div class="row   col-12 justify-content-start">
+                                                                <div class="col-md-12">
+
+                                                                    <div style="background-color: #d4edda" class="card  p-3 mb-2">
+
+                                                                        <div class="d-flex flex-row">
+                                                                            {% if sub_coments.user.avatar %}
+                                                                                {% thumbnail sub_coments.user.avatar "150x100" quality=95 crop='center' as im %}
+                                                                                    <img class="media-object rounded-circle"
+                                                                                         src="{{ im.url }}">
+                                                                                {% endthumbnail %}
+
+                                                                            {% else %}
+                                                                                <img class="media-object"
+                                                                                     src="{% static 'images/blog/Customer.jpg' %}"
+                                                                                     alt="">
+                                                                            {% endif %}
+
+                                                                            <div class="d-flex flex-column ms-2">
+                                                                                <h6 class="mb-1 text-primary">{{ sub_coments.user }}</h6>
+                                                                                <p class="comment-text">{{ sub_coments.text }}</p>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="d-flex justify-content-between">
+                                                                            <div class="d-flex flex-row gap-3 align-items-center">
+                                                                                <div class="d-flex align-items-center">
+                                                                                    <i class="fa fa-heart-o"></i>
+                                                                                    <span class="ms-1 fs-10">Like</span>
+                                                                                </div>
+
+                                                                                <div class="d-flex align-items-center">
+                                                                                    <i class="fa fa-comment-o"></i>
+                                                                                    <span class="ms-1 fs-10">Replay to /{{ comment.user }}</span>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="d-flex flex-row">
+                                                                                <span class="text-muted fw-normal fs-10">{{ comment.create_date | time }} / {{ comment.create_date | show_jalai_date }}</span>
+
+                                                                            </div>
+
+
+                                                                        </div>
+
+
+                                                                    </div>
+
+
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+                                                    {% endfor %}
+                                                {% endfor %}
+
+
+
+
+
+
+
+
+
+
+{#    <ul>#}
+{#        {% for comnent in Comments %}#}
+{#            <li class="media" id="SelfComment{{ comnent.id }}">#}
+{#                <a class="pull-right" href="#">#}
+{#                    {% if comnent.user.avatar %}#}
+{#                        {% thumbnail comnent.user.avatar "121x86" quality=95 crop='center' as im %}#}
+{#                            <img class="media-object" src="{{ im.url }}">#}
+{#                        {% endthumbnail %}#}
+{##}
+{#                    {% else %}#}
+{#                        <img class="media-object"#}
+{#                             src="{% static 'images/blog/Customer.jpg' %}"#}
+{#                             alt="">#}
+{#                    {% endif %}#}
+{#                </a>#}
+{#                <div class="media-body">#}
+{#                    <ul class="sinlge-post-meta">#}
+{#                        <li><i class="fa fa-user"></i>{{ comnent.user }}</li>#}
+{#                        <li>#}
+{#                            <i class="fa fa-clock-o"></i>{{ sub_coments.create_date | time }}#}
+{#                        </li>#}
+{#                        <li>#}
+{#                            <i class="fa fa-calendar"></i>{{ sub_coments.create_date | show_jalai_date }}#}
+{#                        </li>#}
+{#                    </ul>#}
+{#                    <p>{{ comnent.text }}</p>#}
+{#                    <a class="btn btn-primary"#}
+{#                       onclick="FillParentID({{ comnent.id }})"><i#}
+{#                            class="fa fa-reply"></i>پاسـخ</a>#}
+{#                </div>#}
+{#            </li>#}
+{#            {% for sub_coments in comnent.articelcomment_set.all %}#}
+{#                <li class="media second-media" id="SelfComment{{ comnent.id }}">#}
+{#                    <a class="pull-right" href="#">#}
+{#                        {% if sub_coments.user.avatar %}#}
+{#                            {% thumbnail sub_coments.user.avatar "121x86" quality=95 crop='center' as im %}#}
+{#                                <img class="media-object" src="{{ im.url }}">#}
+{#                            {% endthumbnail %}#}
+{##}
+{#                        {% else %}#}
+{#                            <img class="media-object"#}
+{#                                 src="{% static 'images/blog/Customer.jpg' %}"#}
+{#                                 alt="">#}
+{#                        {% endif %}#}
+{#                    </a>#}
+{#                    <div class="media-body">#}
+{#                        <ul class="sinlge-post-meta">#}
+{#                            <li><i class="fa fa-user"></i>{{ sub_coments.user }}#}
+{#                            </li>#}
+{#                            <li>#}
+{#                                <i class="fa fa-clock-o"></i>{{ sub_coments.create_date | time }}#}
+{#                            </li>#}
+{#                            <li>#}
+{#                                <i class="fa fa-calendar"></i>{{ sub_coments.create_date | show_jalai_date }}#}
+{#                            </li>#}
+{#                        </ul>#}
+{#                        <p>{{ sub_coments.text }}</p>#}
+{##}
+{#                    </div>#}
+{#                </li>#}
+{#            {% endfor %}#}
+{##}
+{#        {% endfor %}#}
+{#    </ul>#}

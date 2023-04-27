@@ -1,0 +1,27 @@
+{% load thumbnail %}
+{% if current_user.avatar %}
+    {% thumbnail current_user.avatar '150x100' quality=110 crop='center' as IM %}
+        <img style="width: 100%" src="{{ IM.url }}" alt="">
+    {% endthumbnail %}
+
+{% else %}
+    <img style="width: 100%" src="/static/images/blog-one.jpg" alt="">
+
+{% endif %}
+<div class="panel panel-info">
+    <ul class="list-group">
+        <li class="list-group-item">
+            <a href="{% url 'DashboardUser_Url' %}">پنل کاربری </a>
+        </li>
+        <li class="list-group-item">
+            <a href="{% url 'EditUserProfile_Url' %}">ویرایش اطلاعات </a>
+        </li>
+        <li class="list-group-item">
+            <a href="{% url 'ChangePassword_Url' %}">تغییر کلمه عبور </a>
+
+    </ul>
+</div>
+<div class="col-md-8">
+
+</div>
+
